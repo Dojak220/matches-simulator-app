@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simulador</string>
+    <string name="cd_simulate">Simulação de partida</string>
+    <string name="cd_home_team_flag">Bandeira do time da casa</string>
+    <string name="cd_away_team_flag">Bandeira do time visitante</string>
 </resources>
