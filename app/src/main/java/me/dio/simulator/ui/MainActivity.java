@@ -3,16 +3,15 @@ package me.dio.simulator.ui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private MatchesAPI matchesAPI;
-    private MatchesAdapter matchesAdapter;
+    private MatchesAdapter matchesAdapter  = new MatchesAdapter(Collections.emptyList());
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         binding.rvMatches.setHasFixedSize(true);
         binding.rvMatches.setLayoutManager(new LinearLayoutManager(this));
 
+        binding.rvMatches.setAdapter(matchesAdapter);
         getMatches();
     }
 
@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupFloatingButton() {
+
         binding.fabSimulate.setOnClickListener(view -> {
             view.animate().rotationBy(360).setDuration(1000).setListener(new AnimatorListenerAdapter() {
                 @Override
